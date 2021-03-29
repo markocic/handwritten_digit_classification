@@ -1,0 +1,12 @@
+body {
+    margin-top: 100px;
+}
+
+canvas {
+    border:2px solid;
+    background-color: black;
+}
+
+.cp_color {
+    border:2px solid;
+}
