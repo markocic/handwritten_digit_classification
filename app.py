@@ -24,17 +24,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def main():
-    # image_array = np.asarray(data)
-    #
-    # image = Image.fromarray(image_array, 'L')
-    # image.save("test.png")
-    #
-    # im = imageio.imread("test.png")
-    #
-    # gray = np.dot(im[..., :3], [0.299, 0.587, 0.114])
-    # plt.imshow(gray, cmap=plt.get_cmap('gray'))
-    # plt.show()
-
     return render_template('index.html', predicted_num="Draw a digit from 0-9")
 
 
