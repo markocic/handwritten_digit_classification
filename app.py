@@ -1,16 +1,14 @@
 import base64
+import os
 import re
-import imageio
+
 import numpy as np
 import tensorflow as tf
-from matplotlib import pyplot as plt
-from skimage.io import imread, imsave
+from flask import Flask, request
+from flask import render_template
+from skimage.io import imread
 from skimage.transform import resize
 from tensorflow.keras.models import load_model
-from flask import Flask, request, jsonify
-from flask import render_template
-
-import os
 
 os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
 
