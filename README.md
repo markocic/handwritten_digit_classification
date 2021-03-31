@@ -59,6 +59,10 @@ A link to your web app will be printed in the terminal. It will probably be
 
 If you ran into some issues feel free to contact me and I will try my best to help you resolve the said issue.
 
+### Deployment
+
+I deployed this app to heroku. Checkout branch 'heroku' for optimized version that's ready to be pushed.
+
 ## Usage <a name = "usage"></a>
 
 
