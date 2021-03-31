@@ -11,6 +11,9 @@ This is a responsive wep app to classify digits written on an HTML canvas using 
 The model is trained on an MNIST ("Modified National Institute of Standards and Technology") dataset containing 60,000 images of handwritten digits. At the time of writing this, the model's accuracy is 99.1%.
 
 ## Getting Started <a name = "getting_started"></a>
+
+There is a live version for you to test before deciding to install it on your local machine. https://hw-digit-classification.herokuapp.com/
+
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
 ### Prerequisites
@@ -57,6 +60,7 @@ A link to your web app will be printed in the terminal. It will probably be
 If you ran into some issues feel free to contact me and I will try my best to help you resolve the said issue.
 
 ## Usage <a name = "usage"></a>
+
 
 After setting everything up and opening web app in your preferred web browser you will be greated with a screen that looks like this.
 
