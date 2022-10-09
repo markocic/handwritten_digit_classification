@@ -1,5 +1,36 @@
+@import url('http://fonts.cdnfonts.com/css/montserrat');
+
 body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
     margin-top: 100px;
+    background-color: rgb(55, 105, 150) !important;
+    color: white;
+}
+
+.btn-primary {
+    background-color: rgb(31, 72, 126) !important;
+    border-color: rgb(31, 72, 126) !important;
+}
+
+.ui-icons {
+    font-size: 35px;
+}
+
+.predicted_num_col {
+    background-color: rgba(31, 72, 126, 0.5);
+}
+
+.predicted_digit {
+
+}
+
+.dig {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 570px;
+    height: 570px;
+    font-size:250;
 }
 
 canvas {

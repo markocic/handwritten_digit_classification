@@ -92,10 +92,10 @@ function draw() {
 }
 
 function erase() {
-    const m = confirm("Want to clear");
-    if (m) {
+//    const m = confirm("Want to clear");
+//    if (m) {
         ctx.clearRect(0, 0, w, h);
-    }
+//    }
 }
 
 function get_canvas_pixels() {

@@ -22,7 +22,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def main():
-    return render_template('index.html', predicted_num="Write a digit between 0-9")
+    return render_template('index.html', predicted_num="0")
 
 
 @app.route('/predict/', methods=['GET', 'POST'])
