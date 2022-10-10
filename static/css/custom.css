@@ -1,9 +1,76 @@
+@import url('http://fonts.cdnfonts.com/css/montserrat');
+@import url('https://fonts.googleapis.com/css?family=Dancing Script');
+
 body {
-    margin-top: 100px;
+    background-color: rgb(55, 105, 150) !important;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+.hw {
+    margin-top: -5px;
+    font-family: 'Dancing Script', sans-serif;
+    font-size: 28px;
+
+}
+
+.navbar {
+    -webkit-box-shadow: -1px -2px 13px 0px #0009;
+    -moz-box-shadow: -1px -2px 13px 0px #0009;
+    box-shadow: -1px -2px 13px 0px #0009;
+
+}
+
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+    color: #1f487e !important;
+    font-weight: bold;
+
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #1f487e !important;
+    font-size: 20px;
+    text-shadow: 0 0 20px #000000e8;
+    font-weight:bold;
+}
+
+.nav-item {
+    color: #1d3461 !important;
+}
+
+#main_container {
+    font-weight: 800;
+}
+
+.btn-primary {
+    background-color: #1f487e !important;
+    border-color: #1f487e !important;
+}
+
+.ui-icons {
+    font-size: 35px;
+    text-shadow:2px 3px 4px #000000;
+}
+
+.predicted_num_col {
+    background-color: rgba(31, 72, 126, 0.5);
+}
+
+.predicted_digit_text {
+    text-shadow: 0 0 20px #0000004d;
+
+}
+
+.dig {
+    text-align: center;
+    vertical-align: middle;
+    /*line-height: 570px;*/
+    /*height: 570px;*/
+    font-size:250;
 }
 
 canvas {
-    border:2px solid;
+    /*border:2px solid;*/
     background-color: black;
 }
 

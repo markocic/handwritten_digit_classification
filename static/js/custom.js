@@ -8,7 +8,7 @@ let canvas, ctx, flag = false,
     dot_flag = false;
 
 let x = "white", // Default brush color
-    y = 14; // Default brush size
+    y = 20; // Default brush size
 
 function init() {
     // set dimensions of color picker squares
@@ -27,6 +27,14 @@ function init() {
     canvas.width  = canvas.offsetWidth;
     // make it a square
     canvas.height = canvas.width;
+
+    $("#predicted_digit").css("height", $("#can").outerHeight() + "px");
+    $("#predicted_digit").css("line-height", $("#can").outerHeight() + "px");
+    console.log("here");
+
+//    dig = document.querySelector('.dig');
+//    dig.style.lineHeight = canvas.width;
+//    dig.style.height = canvas.width;
 
     ctx = canvas.getContext("2d");
 
@@ -49,21 +57,6 @@ function init() {
 
 function color(obj) {
     switch (obj.id) {
-        case "green":
-            x = "green";
-            break;
-        case "blue":
-            x = "blue";
-            break;
-        case "red":
-            x = "red";
-            break;
-        case "yellow":
-            x = "yellow";
-            break;
-        case "orange":
-            x = "orange";
-            break;
         case "black":
             x = "black";
             break;
@@ -72,7 +65,7 @@ function color(obj) {
             break;
     }
     if (x == "black") y = 30;
-    else y = 14;
+    else y = 20;
 
 }
 
@@ -92,10 +85,10 @@ function draw() {
 }
 
 function erase() {
-    const m = confirm("Want to clear");
-    if (m) {
+//    const m = confirm("Want to clear");
+//    if (m) {
         ctx.clearRect(0, 0, w, h);
-    }
+//    }
 }
 
 function get_canvas_pixels() {
@@ -147,12 +140,16 @@ function save_canvas_to_png() { // Sends pixel values to python
 }
 
 function findxy(res, e) {
-    var bodyTopMargin = 100; // used to position x, y values used for drawing function
 
     // finding offset left of container div
     var window_width = window.innerWidth;
     var main_container_width = document.getElementById("main_container").offsetWidth;
-    var offsetLeft = (window_width - main_container_width) / 2
+    var offsetLeft = (window_width - main_container_width) / 2;
+
+    // finding top offset
+    var window_height = $(window).outerHeight();
+    var main_container_height = $("#main_container").height();
+    var bodyTopMargin = (window_height - main_container_height) / 2;
 
     if (res == 'down') {
         prevX = currX;

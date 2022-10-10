@@ -1,103 +1,113 @@
 <html>
+<head>
 
 <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.css') }}">
 <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap-grid.css') }}">
 <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap-reboot.css') }}">
-<link rel="stylesheet" href="{{ url_for('static',filename='css/custom.css') }}">
+<link rel="stylesheet" href="{{ url_for('static',filename='css/custom.css') }}?q=12324657456">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static',filename='js/custom.js') }}"></script>
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#"><span class="hw">handwritten</span> digit classification</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
+</head>
 <script>
     $(document).ready(function () {
 
     $("#btn").on("click", function() {
         var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-	   		var canvasObj = document.getElementById("can");
-	   		var img = canvasObj.toDataURL('image/png');
-	   		$.ajax({
-	   			type: "POST",
-	   			url: $SCRIPT_ROOT + "/predict/",
-	   			data: img,
-	   			success: function(data) {
-	   			    console.log(data);
-	   			    var $response=$(data);
-	   			    console.log($response);
+        var canvasObj = document.getElementById("can");
+        var img = canvasObj.toDataURL('image/png');
+        $.ajax({
+            type: "POST",
+            url: $SCRIPT_ROOT + "/predict/",
+            data: img,
+            success: function(data) {
+                console.log(data);
+                var $response=$(data);
+                console.log($response);
 
-                    //Query the jQuery object for the values
-                    var result = $('#predicted_digit', data).text();
-                    console.log(result);
-	   				$('#predicted_digit').text(result);
-	   		}
-	   	});
+                //Query the jQuery object for the values
+                var result = $('#predicted_digit', data).text();
+                console.log(result);
+                $('#predicted_digit').text(result);
+            }
+
+        });
 
     });
+
+
 });
 
 </script>
 
 <body onload="init()">
 
-<div class="container" id="main_container">
+<div class="h-100 d-flex justify-content-center align-items-center">
+    <div class="container" id="main_container">
     <div class="row">
-        <div class="col-5">
+        <div class="col-6">
             <div class="row">
-                <canvas id="can"></canvas>
+                <canvas class=" shadow rounded" id="can"></canvas>
             </div>
-            <div class="row mt-4">
-                <div class="col">
-                    <button class="btn btn-primary mr-3" type="button" id="btn">Predict</button>
-                    <button class="btn btn-outline-danger" type="button" id="clr" onclick="erase()">Clear</button>
+            <div class="row mt-4 justify-content-center">
+                <div>
+                    <button class="btn btn-primary mr-3 shadow" type="button" id="btn">Predict</button>
+<!--                    <button class="btn btn-outline-danger" type="button" id="clr" onclick="">Clear</button>-->
                 </div>
             </div>
 
         </div>
-        <div class="col-4" id="color_picker">
-            <div class="row">
+        <div class="col-2" id="color_picker">
+            <div class="row mt-3">
                 <div class="col">
-                    <div class="text-center"><h1>Choose Color</h1></div>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-4">
-                    <div class="cp_color" style="background:green;" id="green" onclick="color(this)"></div>
-                </div>
-                <div class="col-4">
-                    <div class="cp_color" style="background:blue;" id="blue" onclick="color(this)"></div>
-
-                </div>
-                <div class="col-4">
-                    <div class="cp_color" style="background:red;" id="red" onclick="color(this)"></div>
+                    <div id="white" onclick="color(this)">
+                        <i class="bi bi-brush ui-icons"></i>
+                        <!-- alt="..." on <img> element -->
+<!--                        <img src="{{ url_for('static',filename='icons/brush.svg') }}" alt="Brush">-->
+                    </div>
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-4">
-                    <div class="cp_color" style="background:yellow;" id="yellow" onclick="color(this)"></div>
-
-                </div>
-                <div class="col-4">
-                    <div class="cp_color" style="background:orange;" id="orange" onclick="color(this)"></div>
-
-                </div>
-                <div class="col-4">
-                    <div class="cp_color" style="background:white;" id="white" onclick="color(this)"></div>
+                <div class="col">
+                    <div id="black" onclick="color(this)">
+                        <i class="bi bi-eraser ui-icons"></i>
+                    </div>
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col align-middle">
-                    <h3>Eraser</h3>
-                </div>
                 <div class="col">
-                    <div class="cp_color" style="background:black;" id="black" onclick="color(this)"></div>
+                    <div id="clr" onclick="document.getElementById('can').getContext('2d').clearRect(0, 0, w, h);">
+                        <i class="bi bi-trash3-fill ui-icons"></i>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-3 text-center">
-            <h1>Predicted digit: </h1>
-            <h1 id="predicted_digit">{{ predicted_num }}</h1>
+        <div class="col-4 text-center predicted_num_col dig shadow p-3 mb-5 rounded" id="predicted_digit">
+            <span class="predicted_digit_text">{{ predicted_num }}</span>
         </div>
 
+    </div>
     </div>
 </div>
 </body>
