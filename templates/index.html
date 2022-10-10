@@ -20,10 +20,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#">about</a>
           </li>
         </ul>
       </div>
@@ -42,14 +42,16 @@
             url: $SCRIPT_ROOT + "/predict/",
             data: img,
             success: function(data) {
-                console.log(data);
                 var $response=$(data);
-                console.log($response);
 
                 //Query the jQuery object for the values
                 var result = $('#predicted_digit', data).text();
                 console.log(result);
                 $('#predicted_digit').text(result);
+                $('#predicted_digit').addClass('pop_animation');
+                setTimeout(function(){
+                  $('#predicted_digit').removeClass('pop_animation');
+                }, 700);
             }
 
         });
@@ -110,5 +112,18 @@
     </div>
     </div>
 </div>
+
+<ul class="nav justify-content-center fixed-bottom footer">
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" href="https://github.com/markocic/handwritten_digit_classification"><i class="bi bi-github"></i></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/markokocic2000/"><i class="bi bi-linkedin"></i></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:markokocic2000@gmail.com"><i class="bi bi-envelope-fill"></i></a>
+  </li>
+</ul>
+
 </body>
 </html>

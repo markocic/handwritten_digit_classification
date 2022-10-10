@@ -14,10 +14,30 @@ body {
 
 }
 
-.navbar {
-    -webkit-box-shadow: -1px -2px 13px 0px #0009;
-    -moz-box-shadow: -1px -2px 13px 0px #0009;
-    box-shadow: -1px -2px 13px 0px #0009;
+.pop_animation {
+    animation: pop 0.7s linear;
+}
+
+@keyframes pop {
+    10% { transform: scale(1.05); }
+    100% {transform: scale(1); }
+}
+
+.footer {
+    background-color: #1f487e;
+}
+
+.footer > .nav-item > .nav-link {
+    color:#fff;
+    font-size: 20px;
+
+}
+
+.navbar, .footer{
+    -webkit-box-shadow: -1px -2px 20px 0px #0000006b;
+    -moz-box-shadow: -1px -2px 20px 0px #0000006b;
+    box-shadow: -1px -2px 20px 0px #0000006b;
+    /*box-shadow: -1px -2px 13px 0px #0009;*/
 
 }
 
@@ -30,7 +50,7 @@ body {
 .navbar-light .navbar-nav .nav-link {
     color: #1f487e !important;
     font-size: 20px;
-    text-shadow: 0 0 20px #000000e8;
+    text-shadow: 0 0 20px #000000ad;
     font-weight:bold;
 }
 
