@@ -30,6 +30,7 @@ body {
 .navbar-light .navbar-nav .nav-link {
     color: #1f487e !important;
     font-size: 20px;
+    text-shadow: 0 0 20px #000000e8;
     font-weight:bold;
 }
 

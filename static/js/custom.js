@@ -8,7 +8,7 @@ let canvas, ctx, flag = false,
     dot_flag = false;
 
 let x = "white", // Default brush color
-    y = 14; // Default brush size
+    y = 20; // Default brush size
 
 function init() {
     // set dimensions of color picker squares
@@ -65,7 +65,7 @@ function color(obj) {
             break;
     }
     if (x == "black") y = 30;
-    else y = 14;
+    else y = 20;
 
 }
 
