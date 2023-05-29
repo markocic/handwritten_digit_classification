@@ -68,10 +68,10 @@ I deployed this app to heroku. Checkout branch 'heroku' for optimized version th
 
 After setting everything up and opening web app in your preferred web browser you will be greated with a screen that looks like this.
 
-*placeholder image for the main page*
+![home page](https://imgur.com/20JFpKo.jpg)
 
 You can pick any color you want from the middle row and write a digit between 0-9 on a black canvas in the left row. After you have written a digit just click on "Predict" and the text in the right row saying "Write a digit between 0-9" will change to reflect model's prediction.
 
-*placeholder for a gif showing the process described above*
+![usage](https://i.imgur.com/Ld6tMdb.gif)
 
  If you want to erase or clear the canvas, there is an eraser below the color picker and a "Clear" button below the canvas.
